@@ -14,8 +14,7 @@
 		915B47342210D186000E894A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 915B47332210D186000E894A /* Assets.xcassets */; };
 		915B47372210D186000E894A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 915B47352210D186000E894A /* LaunchScreen.storyboard */; };
 		915B473F2210D1A1000E894A /* UITopViewBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 915B473E2210D1A1000E894A /* UITopViewBar.swift */; };
-		91648F7B22135F0600469813 /* back-angle-arrow-in-square-interface-button.png in Resources */ = {isa = PBXBuildFile; fileRef = 91648F7A22135F0600469813 /* back-angle-arrow-in-square-interface-button.png */; };
-		91D72E562215E112001491CA /* OrientationHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91D72E552215E112001491CA /* OrientationHelper.swift */; };
+		91D72E562215E112001491CA /* DeviceOrientationHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91D72E552215E112001491CA /* DeviceOrientationHelper.swift */; };
 		91F85AB62211D88A00193B6D /* NavigationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91F85AB52211D88A00193B6D /* NavigationViewController.swift */; };
 		91F85AB82211DC5600193B6D /* TestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91F85AB72211DC5600193B6D /* TestViewController.swift */; };
 /* End PBXBuildFile section */
@@ -30,8 +29,7 @@
 		915B47362210D186000E894A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		915B47382210D186000E894A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		915B473E2210D1A1000E894A /* UITopViewBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITopViewBar.swift; sourceTree = "<group>"; };
-		91648F7A22135F0600469813 /* back-angle-arrow-in-square-interface-button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "back-angle-arrow-in-square-interface-button.png"; path = "../../../Downloads/back-angle-arrow-in-square-interface-button.png"; sourceTree = "<group>"; };
-		91D72E552215E112001491CA /* OrientationHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrientationHelper.swift; sourceTree = "<group>"; };
+		91D72E552215E112001491CA /* DeviceOrientationHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceOrientationHelper.swift; sourceTree = "<group>"; };
 		91F85AB52211D88A00193B6D /* NavigationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationViewController.swift; sourceTree = "<group>"; };
 		91F85AB72211DC5600193B6D /* TestViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -72,10 +70,9 @@
 				91F85AB52211D88A00193B6D /* NavigationViewController.swift */,
 				915B473E2210D1A1000E894A /* UITopViewBar.swift */,
 				91F85AB72211DC5600193B6D /* TestViewController.swift */,
-				91D72E552215E112001491CA /* OrientationHelper.swift */,
+				91D72E552215E112001491CA /* DeviceOrientationHelper.swift */,
 				915B47302210D185000E894A /* Main.storyboard */,
 				915B47332210D186000E894A /* Assets.xcassets */,
-				91648F7A22135F0600469813 /* back-angle-arrow-in-square-interface-button.png */,
 				915B47352210D186000E894A /* LaunchScreen.storyboard */,
 				915B47382210D186000E894A /* Info.plist */,
 			);
@@ -144,7 +141,6 @@
 				915B47372210D186000E894A /* LaunchScreen.storyboard in Resources */,
 				915B47342210D186000E894A /* Assets.xcassets in Resources */,
 				915B47322210D185000E894A /* Main.storyboard in Resources */,
-				91648F7B22135F0600469813 /* back-angle-arrow-in-square-interface-button.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -159,7 +155,7 @@
 				91F85AB62211D88A00193B6D /* NavigationViewController.swift in Sources */,
 				915B472F2210D185000E894A /* ViewController.swift in Sources */,
 				915B472B2210D185000E894A /* AppDelegate.swift in Sources */,
-				91D72E562215E112001491CA /* OrientationHelper.swift in Sources */,
+				91D72E562215E112001491CA /* DeviceOrientationHelper.swift in Sources */,
 				915B473F2210D1A1000E894A /* UITopViewBar.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -307,15 +303,16 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 93LU37KCD9;
+				DEVELOPMENT_TEAM = JT55BTWL93;
 				INFOPLIST_FILE = ARUI_Samples/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "FelipeKestelman.ARUI-Samples";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 5.0;
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -325,15 +322,16 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 93LU37KCD9;
+				DEVELOPMENT_TEAM = JT55BTWL93;
 				INFOPLIST_FILE = ARUI_Samples/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "FelipeKestelman.ARUI-Samples";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 5.0;
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;

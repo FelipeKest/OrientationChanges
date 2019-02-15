@@ -33,11 +33,11 @@ class UITopViewBar: UIView {
         addedButtonsStackView = UIStackView()
         self.orientation = orientation
         
-        dismissButton.frame = CGRect(x: 0, y: 2, width: 44, height: 44)
-        reloadButton.frame = CGRect(x: 0, y: 2, width: 44, height: 44)
+        dismissButton.frame = CGRect(x: 0, y: 2, width: 50, height: 50)
+        reloadButton.frame = CGRect(x: 0, y: 2, width: 50, height: 50)
         
         //TODO: Substitute these colors with appropriate images
-        reloadButton.setImage(UIImage(named: "reloadButton"), for: .normal)
+        reloadButton.setImage(UIImage(named: "up-arrow"), for: .normal)
         dismissButton.backgroundColor = .blue
         
         super.init(frame: CGRect(x: 0, y: 24, width: UIScreen.main.bounds.width, height: 49))

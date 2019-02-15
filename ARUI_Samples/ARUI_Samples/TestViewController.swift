@@ -8,7 +8,7 @@
 
 import UIKit
 
-class TestViewController: UIViewController {
+class TestViewController: UIViewController, DeviceOrientationHandler {
     
     var topViewBar: UITopViewBar?
     var orientationHandler = DeviceOrientationHelper.shared
@@ -17,9 +17,7 @@ class TestViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        orientationHandler.startDeviceOrientationNotifier { (deviceOrientation) in
-            self.orientationChanged(deviceOrientation: UIDevice.current.orientation)
-        }
+        orientationHandler.startDeviceOrientationNotifier(to: self)
 
         var buttons:[UIButton] = []
         let button = UIButton()
@@ -52,33 +50,12 @@ class TestViewController: UIViewController {
         return .all
     }
     
-    private func orientationChanged(deviceOrientation: UIDeviceOrientation){
-        var angle: Double?
-        print("orientation changed")
-        switch deviceOrientation {
-        case .portrait:
-            angle = 0
-            break
-        case .portraitUpsideDown:
-            angle = Double.pi
-            break
-        case .landscapeLeft:
-            angle = Double.pi / 2
-            break
-        case .landscapeRight:
-            angle = -Double.pi / 2
-            break
-        default:
-            break
-        }
-        if let angle = angle {
-            print("angle",angle)
-            let transform = CGAffineTransform(rotationAngle: CGFloat(-angle))
+    func orientationChanged(deviceOrientation: UIDeviceOrientation){
+        DispatchQueue.main.async {
+
             guard let barSubviews = self.topViewBar?.addedButtonsStackView.subviews else {return}
             for view in barSubviews {
-                UIView.animate(withDuration: 0.3) {
-                    view.transform = transform
-                }
+                view.rotateConforming(deviceOrientation)
             }
         }
     }
@@ -98,4 +75,17 @@ class TestViewController: UIViewController {
     }
     */
 
+}
+
+
+extension UIView {
+    func rotateConforming(_ deviceOrientation: UIDeviceOrientation) {
+        let rotation = deviceOrientation.angle
+        let transform = CGAffineTransform(rotationAngle: rotation)
+
+            UIView.animate(withDuration: 0.3) {
+                self.transform = transform
+        }
+
+    }
 }
