@@ -19,7 +19,7 @@ class TestViewController: UIViewController, DeviceOrientationHandler {
         
         orientationHandler.startDeviceOrientationNotifier(to: self)
 
-        print(UIScreen.main.bounds.width)
+
         
         var buttons:[UIButton] = []
         let button = UIButton()
@@ -28,10 +28,10 @@ class TestViewController: UIViewController, DeviceOrientationHandler {
         other.backgroundColor = .green
         button.backgroundColor = .black
         anotherButton.backgroundColor = .white
-//        buttons.append(anotherButton)
-//        buttons.append(other)
+        buttons.append(anotherButton)
+        buttons.append(other)
         buttons.append(button)
-        
+//
         topViewBar = UITopViewBar(buttons: buttons, on: self.view)
     }
     

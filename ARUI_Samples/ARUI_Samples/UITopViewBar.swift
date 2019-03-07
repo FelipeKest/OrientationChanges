@@ -44,7 +44,7 @@ class UITopViewBar: UIView {
 //        dismissButton.setImage(UIImage(named: "backArrow"), for: .normal)
         dismissButton.backgroundColor = .red
         
-        super.init(frame: CGRect(x: 0, y: 24, width: UIScreen.main.bounds.width, height: 49))
+        super.init(frame: CGRect(x: 0, y: 24, width: UIScreen.main.bounds.width-32, height: 49))
         
         
         dismissButton.widthAnchor.constraint(equalToConstant: 44).isActive = true
@@ -110,8 +110,7 @@ class UITopViewBar: UIView {
             self.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
             self.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 49),
             self.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 16),
-            self.widthAnchor.constraint(equalTo: view.safeAreaLayoutGuide.widthAnchor, constant: -32)
-//            self.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -16)
+            self.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -16)
             ])
     }
     
@@ -126,13 +125,12 @@ class UITopViewBar: UIView {
         let availableWidth = screenSize - 32 - CGFloat(numberOfButtons+2)*buttonWidth
         
         let denominator = CGFloat(numberOfButtons+1)
-    
-        return availableWidth/denominator
+        
+        return floor(availableWidth/denominator)
     }
     
     /**
      Setup constraints for the stack view in the topBar
-     
      - Parameter stackView: the stackView to be set up
      */
     private func setupStackViewContraints(stackView: UIStackView){
