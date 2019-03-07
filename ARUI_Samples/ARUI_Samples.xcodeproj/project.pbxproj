@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		910AB27D221C7223006160F7 /* UICustomNavigationBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 910AB27C221C7223006160F7 /* UICustomNavigationBar.swift */; };
+		910AB27F221C7D18006160F7 /* RootVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 910AB27E221C7D18006160F7 /* RootVC.swift */; };
 		915B472B2210D185000E894A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 915B472A2210D185000E894A /* AppDelegate.swift */; };
 		915B472D2210D185000E894A /* art.scnassets in Resources */ = {isa = PBXBuildFile; fileRef = 915B472C2210D185000E894A /* art.scnassets */; };
 		915B472F2210D185000E894A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 915B472E2210D185000E894A /* ViewController.swift */; };
@@ -15,11 +17,14 @@
 		915B47372210D186000E894A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 915B47352210D186000E894A /* LaunchScreen.storyboard */; };
 		915B473F2210D1A1000E894A /* UITopViewBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 915B473E2210D1A1000E894A /* UITopViewBar.swift */; };
 		91D72E562215E112001491CA /* DeviceOrientationHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91D72E552215E112001491CA /* DeviceOrientationHelper.swift */; };
+		91F0550422284FE0001A8C3C /* Nav2ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91F0550322284FE0001A8C3C /* Nav2ViewController.swift */; };
 		91F85AB62211D88A00193B6D /* NavigationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91F85AB52211D88A00193B6D /* NavigationViewController.swift */; };
 		91F85AB82211DC5600193B6D /* TestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91F85AB72211DC5600193B6D /* TestViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		910AB27C221C7223006160F7 /* UICustomNavigationBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UICustomNavigationBar.swift; sourceTree = "<group>"; };
+		910AB27E221C7D18006160F7 /* RootVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootVC.swift; sourceTree = "<group>"; };
 		915B47272210D185000E894A /* ARUI_Samples.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ARUI_Samples.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		915B472A2210D185000E894A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		915B472C2210D185000E894A /* art.scnassets */ = {isa = PBXFileReference; lastKnownFileType = wrapper.scnassets; path = art.scnassets; sourceTree = "<group>"; };
@@ -30,6 +35,7 @@
 		915B47382210D186000E894A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		915B473E2210D1A1000E894A /* UITopViewBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITopViewBar.swift; sourceTree = "<group>"; };
 		91D72E552215E112001491CA /* DeviceOrientationHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceOrientationHelper.swift; sourceTree = "<group>"; };
+		91F0550322284FE0001A8C3C /* Nav2ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Nav2ViewController.swift; sourceTree = "<group>"; };
 		91F85AB52211D88A00193B6D /* NavigationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationViewController.swift; sourceTree = "<group>"; };
 		91F85AB72211DC5600193B6D /* TestViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -68,8 +74,11 @@
 				915B472C2210D185000E894A /* art.scnassets */,
 				915B472E2210D185000E894A /* ViewController.swift */,
 				91F85AB52211D88A00193B6D /* NavigationViewController.swift */,
+				910AB27E221C7D18006160F7 /* RootVC.swift */,
+				91F0550322284FE0001A8C3C /* Nav2ViewController.swift */,
 				915B473E2210D1A1000E894A /* UITopViewBar.swift */,
 				91F85AB72211DC5600193B6D /* TestViewController.swift */,
+				910AB27C221C7223006160F7 /* UICustomNavigationBar.swift */,
 				91D72E552215E112001491CA /* DeviceOrientationHelper.swift */,
 				915B47302210D185000E894A /* Main.storyboard */,
 				915B47332210D186000E894A /* Assets.xcassets */,
@@ -153,8 +162,11 @@
 			files = (
 				91F85AB82211DC5600193B6D /* TestViewController.swift in Sources */,
 				91F85AB62211D88A00193B6D /* NavigationViewController.swift in Sources */,
+				91F0550422284FE0001A8C3C /* Nav2ViewController.swift in Sources */,
 				915B472F2210D185000E894A /* ViewController.swift in Sources */,
 				915B472B2210D185000E894A /* AppDelegate.swift in Sources */,
+				910AB27F221C7D18006160F7 /* RootVC.swift in Sources */,
+				910AB27D221C7223006160F7 /* UICustomNavigationBar.swift in Sources */,
 				91D72E562215E112001491CA /* DeviceOrientationHelper.swift in Sources */,
 				915B473F2210D1A1000E894A /* UITopViewBar.swift in Sources */,
 			);
@@ -303,7 +315,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = JT55BTWL93;
+				DEVELOPMENT_TEAM = 93LU37KCD9;
 				INFOPLIST_FILE = ARUI_Samples/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -322,7 +334,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = JT55BTWL93;
+				DEVELOPMENT_TEAM = 93LU37KCD9;
 				INFOPLIST_FILE = ARUI_Samples/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
 				LD_RUNPATH_SEARCH_PATHS = (

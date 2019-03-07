@@ -6,7 +6,6 @@
 //  Copyright © 2019 Felipe Kestelman. All rights reserved.
 //
 
-import Foundation
 import UIKit
 import CoreMotion
 

@@ -16,7 +16,6 @@ class UITopViewBar: UIView {
     var dismissButton: UIButton
     var reloadButton: UIButton
     var addedButtonsStackView: UIStackView
-    var orientation: ButtonsOrientation
     
     
     /**
@@ -26,21 +25,33 @@ class UITopViewBar: UIView {
      -Parameter view: The parent view of this bar
      -Parameter orientation: The orientation of the buttons when the device is on landscape
      */
-    init(buttons: [UIButton], on view: UIView, orientation: ButtonsOrientation) {
+    init(buttons: [UIButton], on view: UIView) {
         dismissButton = UIButton(type: .custom)
         reloadButton = UIButton(type: .custom)
+        reloadButton.translatesAutoresizingMaskIntoConstraints = false
+        dismissButton.translatesAutoresizingMaskIntoConstraints = false
+        
+        
         
         addedButtonsStackView = UIStackView()
-        self.orientation = orientation
         
-        dismissButton.frame = CGRect(x: 0, y: 2, width: 50, height: 50)
-        reloadButton.frame = CGRect(x: 0, y: 2, width: 50, height: 50)
+        dismissButton.frame = CGRect(x: 0, y: 2, width: 44, height: 44)
+        reloadButton.frame = CGRect(x: 0, y: 2, width: 44, height: 44)
         
         //TODO: Substitute these colors with appropriate images
-        reloadButton.setImage(UIImage(named: "up-arrow"), for: .normal)
-        dismissButton.backgroundColor = .blue
+//        reloadButton.setImage(UIImage(named: "reloadButton"), for: .normal
+        reloadButton.backgroundColor = .red
+//        dismissButton.setImage(UIImage(named: "backArrow"), for: .normal)
+        dismissButton.backgroundColor = .red
         
         super.init(frame: CGRect(x: 0, y: 24, width: UIScreen.main.bounds.width, height: 49))
+        
+        
+        dismissButton.widthAnchor.constraint(equalToConstant: 44).isActive = true
+        dismissButton.heightAnchor.constraint(equalToConstant: 44).isActive = true
+        
+        reloadButton.widthAnchor.constraint(equalToConstant: 44).isActive = true
+        reloadButton.heightAnchor.constraint(equalToConstant: 44).isActive = true
         
         /*
          Spacing for horizontal layout
@@ -51,12 +62,10 @@ class UITopViewBar: UIView {
         
         let spacing = setupStackViewSpacing(numberOfButtons: buttons.count, buttonWidth: 44)
         
-        let numberOfButtons = CGFloat(buttons.count)
-        
         addedButtonsStackView.translatesAutoresizingMaskIntoConstraints = false
         addedButtonsStackView.axis = .horizontal
         
-        addedButtonsStackView.frame = CGRect(x: CGFloat(16), y: 2, width: (numberOfButtons+2)*(dismissButton.frame.width)+(numberOfButtons+1)*spacing, height: 44)
+        addedButtonsStackView.frame = CGRect(x: CGFloat(16), y: 2, width: UIScreen.main.bounds.width-32, height: 44)
         addedButtonsStackView.distribution = .equalSpacing
         addedButtonsStackView.alignment = .center
         addedButtonsStackView.spacing = spacing
@@ -68,16 +77,20 @@ class UITopViewBar: UIView {
         
         addedButtonsStackView.addArrangedSubview(dismissButton)
         for button in buttons {
+            button.translatesAutoresizingMaskIntoConstraints = false
             button.frame = CGRect(x: 0, y: 0, width: 44, height: 44)
+            button.widthAnchor.constraint(equalToConstant: 44).isActive = true
+            button.heightAnchor.constraint(equalToConstant: 44).isActive = true
             addedButtonsStackView.addArrangedSubview(button)
         }
         addedButtonsStackView.addArrangedSubview(reloadButton)
+        
         
         self.addSubview(addedButtonsStackView)
         
         view.addSubview(self)
         
-        setupStackViewPortraitContraints(stackView: addedButtonsStackView)
+        setupStackViewContraints(stackView: addedButtonsStackView)
         setupPortraitConstraints(view: view)
     }
     
@@ -96,8 +109,9 @@ class UITopViewBar: UIView {
         NSLayoutConstraint.activate([
             self.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
             self.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 49),
-            self.leftAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leftAnchor),
-            self.rightAnchor.constraint(equalTo: view.safeAreaLayoutGuide.rightAnchor)
+            self.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 16),
+            self.widthAnchor.constraint(equalTo: view.safeAreaLayoutGuide.widthAnchor, constant: -32)
+//            self.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -16)
             ])
     }
     
@@ -108,37 +122,30 @@ class UITopViewBar: UIView {
      - returns: The spacing of the stack view
     */
     private func setupStackViewSpacing(numberOfButtons:Int,buttonWidth: CGFloat)-> CGFloat{
-        var screenSize: CGFloat
+        let screenSize = UIScreen.main.bounds.width
+        let availableWidth = screenSize - 32 - CGFloat(numberOfButtons+2)*buttonWidth
         
-        if UIScreen.main.bounds.width > UIScreen.main.bounds.height {
-            screenSize = UIScreen.main.bounds.height
-        } else {
-            screenSize = UIScreen.main.bounds.width
-        }
-        let allButtonsWidth = CGFloat(numberOfButtons)*buttonWidth
-        let availableWidth = screenSize - 2*(buttonWidth+16) - allButtonsWidth
         let denominator = CGFloat(numberOfButtons+1)
+    
         return availableWidth/denominator
     }
     
     /**
-     Setup constraints for the stack view in the topBar when in portrait mode
+     Setup constraints for the stack view in the topBar
      
+     - Parameter stackView: the stackView to be set up
      */
-    private func setupStackViewPortraitContraints(stackView: UIStackView){
+    private func setupStackViewContraints(stackView: UIStackView){
         NSLayoutConstraint.activate([
-            stackView.widthAnchor.constraint(equalToConstant: UIScreen.main.bounds.width - 32),
+//            stackView.widthAnchor.constraint(equalTo: self.safeAreaLayoutGuide.widthAnchor, constant: -31),
+//            stackView.centerXAnchor.constraint(equalTo: self.centerXAnchor),
+//            stackView.topAnchor.constraint(equalTo: self.topAnchor, constant: 2),
+//            stackView.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -2)
+//            stackView.leftAnchor.constraint(equalTo: self.leftAnchor, constant: 16)
+            stackView.leadingAnchor.constraint(equalTo: self.leadingAnchor),
+            stackView.trailingAnchor.constraint(equalTo: self.trailingAnchor),
             stackView.topAnchor.constraint(equalTo: self.topAnchor, constant: 2),
-            stackView.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -2),
-            stackView.leftAnchor.constraint(equalTo: self.leftAnchor, constant: 16)
+            stackView.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -2)
         ])
     }
-}
-
-/**
- Orientation for the buttons when the device is displayed on landscape
- */
-enum ButtonsOrientation {
-    case vertical
-    case horizontal
 }

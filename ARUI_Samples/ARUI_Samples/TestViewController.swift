@@ -19,6 +19,8 @@ class TestViewController: UIViewController, DeviceOrientationHandler {
         
         orientationHandler.startDeviceOrientationNotifier(to: self)
 
+        print(UIScreen.main.bounds.width)
+        
         var buttons:[UIButton] = []
         let button = UIButton()
         let anotherButton = UIButton()
@@ -26,19 +28,15 @@ class TestViewController: UIViewController, DeviceOrientationHandler {
         other.backgroundColor = .green
         button.backgroundColor = .black
         anotherButton.backgroundColor = .white
-//        button.addTarget(self, action: #selector(rotateAction), for: .touchDown)
-//        anotherButton.addTarget(self,action: #selector(rotateAction), for: .touchDown)
+//        buttons.append(anotherButton)
 //        buttons.append(other)
-//        buttons.append(button)
-        buttons.append(anotherButton)
-//
-        topViewBar = UITopViewBar(buttons: buttons, on: self.view, orientation: .vertical)
+        buttons.append(button)
         
-        
-        // Do any additional setup after loading the view.
+        topViewBar = UITopViewBar(buttons: buttons, on: self.view)
     }
     
     override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
         orientationHandler.stopDeviceOrientationNotifier()
     }
     
@@ -60,11 +58,6 @@ class TestViewController: UIViewController, DeviceOrientationHandler {
         }
     }
     
-    override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
-        orientationChanged(deviceOrientation: UIDevice.current.orientation)
-    }
-    
-    
     /*
     // MARK: - Navigation
 
@@ -82,10 +75,8 @@ extension UIView {
     func rotateConforming(_ deviceOrientation: UIDeviceOrientation) {
         let rotation = deviceOrientation.angle
         let transform = CGAffineTransform(rotationAngle: rotation)
-
             UIView.animate(withDuration: 0.3) {
                 self.transform = transform
         }
-
     }
 }
